@@ -1,0 +1,17 @@
+<h1>Liste des Restaurants</h1>
+
+<% if @restaurants.any? %>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <li>
+        <%= link_to restaurant.name, restaurant_path(restaurant)%>
+        <br>
+        <%= restaurant.address %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Aucun restaurant disponible pour le moment.</p>
+<% end %>
+
+<%= link_to "Ajouter un nouveau restaurant", new_restaurant_path %>
